@@ -31,13 +31,14 @@ static void master_ac_mdobus_task(void *param)
 {
     while (true)
     {
-        uart_write_bytes(UART_NUM_2, "444\r\n", strlen("444\r\n"));
         if (xSemaphoreTake(master_ac.reply_sem, portMAX_DELAY) == pdTRUE)
         {
-            uart_write_bytes(master_ac.uart_num, "received complete\r\n", strlen("received complete\r\n"));
+            char msg[100];
+            memset(msg, 0, 100);
+            sprintf(msg, "length is %d", master_ac.rx_len);
+            uart_write_bytes(master_ac.uart_num, (const char *)msg, strlen(msg));
             master_ac.rx_len = 0;
         }
-        uart_write_bytes(UART_NUM_2, "555\r\n", strlen("555\r\n"));
     }
     vTaskDelete(NULL);
 }
