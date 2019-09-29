@@ -20,6 +20,8 @@
 #include "time.h"
 #include "cJSON.h"
 
+#define AIRSYS
+
 typedef enum
 {
     idle = 0,

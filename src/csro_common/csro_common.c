@@ -1,4 +1,5 @@
 #include "csro_common.h"
+#include "csro_devices\csro_devices.h"
 
 csro_system sysinfo;
 csro_mqtt mqttinfo;
@@ -14,5 +15,5 @@ void app_main(void)
     nvs_get_u8(handle, "router_flag", &sysinfo.router_flag);
     nvs_commit(handle);
     nvs_close(handle);
-    printf("Hello World!\r\n");
+    csro_device_init();
 }
