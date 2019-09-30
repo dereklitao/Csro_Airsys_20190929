@@ -4,6 +4,17 @@
 #include "csro_common/csro_common.h"
 #include "mb_address.h"
 
+//uart pin
+#define TXD0_PIN (GPIO_NUM_15)
+#define RXD0_PIN (GPIO_NUM_2)
+#define RTS0_PIN (GPIO_NUM_0)
+#define TXD1_PIN (GPIO_NUM_4)
+#define RXD1_PIN (GPIO_NUM_17)
+#define RTS1_PIN (GPIO_NUM_16)
+#define TXD2_PIN (GPIO_NUM_5)
+#define RXD2_PIN (GPIO_NUM_19)
+#define RTS2_PIN (GPIO_NUM_18)
+
 //function code
 #define MODBUS_FC_READ_COILS 0x01
 #define MODBUS_FC_READ_DISCRETE_INPUTS 0x02
@@ -118,15 +129,12 @@ uint8_t master_write_multi_holding_regs(modbus_master *master, int16_t *value);
 void slave_handle_cmd(modbus_slave *slave);
 
 //mb_master_ac.c
-void csro_master_ac_init(uint8_t uart_num);
-void csro_master_ac_task(void);
+void csro_master_ac_init(uint8_t uart_number);
 
 //mb_master_ap.c
-void csro_master_ap_init(uint8_t uart_num);
-void csro_master_ap_task(void);
+void csro_master_ap_init(uint8_t uart_number);
 
 //mb_slave_hmi.c
-void csro_slave_hmi_init(uint8_t uart_num);
-void csro_slave_hmi_wait_cmd(void);
+void csro_slave_hmi_init(uint8_t uart_number);
 
 #endif
