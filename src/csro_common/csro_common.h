@@ -14,13 +14,14 @@
 #include "driver/gpio.h"
 #include "driver/uart.h"
 #include "lwip/apps/sntp.h"
+#include "lwip/sockets.h"
 #include "nvs_flash.h"
 #include "mqtt_client.h"
 
 #include "time.h"
 #include "cJSON.h"
 
-#define AIRSYS
+#define AIR_SYS
 
 typedef enum
 {
@@ -73,6 +74,7 @@ typedef struct
     char content[1000];
 
     char broker[50];
+    char uri[50];
     char prefix[50];
 
     uint16_t interval;

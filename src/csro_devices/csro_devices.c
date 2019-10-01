@@ -2,21 +2,21 @@
 
 void csro_device_init(void)
 {
-#ifdef AIRSYS
+#ifdef AIR_SYS
     csro_airsys_init();
 #endif
 }
 
 void csro_device_on_connect(esp_mqtt_event_handle_t event)
 {
-#ifdef AIRSYS
+#ifdef AIR_SYS
     csro_airsys_on_connect(event);
 #endif
 }
 
 void csro_device_on_message(esp_mqtt_event_handle_t event)
 {
-#ifdef AIRSYS
+#ifdef AIR_SYS
     csro_airsys_on_message(event);
 #endif
 }
